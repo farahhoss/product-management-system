@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,400&family=PT+Sans&family=Pacifico&family=Poppins:wght@200;400;600;800&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navBar" class="navbar  w-100">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bolder">Phone Store</a>
+
+        <button
+          type="button"
+          class="btn  firstbtn"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+         press to add product <i class="fa-solid fa-pen"></i>
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header body-form">
+                <h1 class="modal-title fs-4 text-white" id="exampleModalLabel">
+                Product Management System
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body body-form">
+                <div class="container">
+               <label for="">Enter name of product*</label>
+                  <input
+                    type="text"
+                    id="prodName"
+                    oninput=" regularExpressionName()"
+                    placeholder="enter product name"
+                    class="form-control my-3 bg-secondary-subtle"
+                  />
+                  <div
+                    id="not-valid-name"
+                    class="alert alert-danger not-valid"
+                    role="alert"
+                  >
+                    OOPS!!not valid enter first letter Capital!!
+                  </div>
+                  <label for="">Enter category of product*</label>
+                  <input
+                    type="text"
+                    id="prodCategory"
+                    oninput="  regularExpressionCategory()"
+                    placeholder="enter product category"
+                    class="form-control my-3 bg-secondary-subtle"
+                  />
+                  <div id="not-valid-cat" class="alert alert-danger not-valid" role="alert">
+                    OOPS !not valid .
+                  </div>
+                  <label for="">Enter price of product*</label>
+                  <input
+                    type="number"
+                    id="prodPrice"
+                    oninput="  regularExpressionPrice() "
+                    placeholder="enter product price"
+                    class="form-control my-3 bg-secondary-subtle"
+                  />
+                  <div
+                    id="not-valid-price"
+                    class="alert alert-danger not-valid"
+                    role="alert"
+                  >
+                  OOPS !not valid .
+                  </div>
+                  <label for="">Enter description of product*</label>
+                  <textarea
+                    name=""
+                    id="prodDes"
+                    oninput="  regularExpressionDesc()"
+                    placeholder="enter product description"
+                    cols="4"
+                    class="form-control my-3 bg-secondary-subtle"
+                    rows="4"
+                  ></textarea>
+                  <div
+                    id="not-valid-text"
+                    class="alert alert-danger not-valid"
+                    role="alert"
+                  >
+                  OOPS !not valid .
+                  </div>
+                  
+                
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn  firstbtn"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+
+                
+                  <button
+                    id="addProduct"
+                    onclick="main() "
+                    class="btn firstbtn d-block"
+                  >
+                    add product <i class="fa-solid fa-plus fa-beat"></i>
+                  </button>
+                  <button
+                  id="updateProd"
+                  onclick="UpdateProductDisplayBtn() "
+                  class="btn firstbtn   my-3 d-none"
+                >
+                  update product <i class="fa-solid fa-pen"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </nav>
+    
+      <section id="service" class="">
+        <div class="container">
+          <div class="row rounded px-2 py-4">
+            <div class="container">
+              <div class="col-12">
+                <div class="searchStyle d-flex">
+                  <input
+                    type="text"
+                    id="search"
+                    oninput="searchOfProduct(this.value)"
+                    placeholder="search of product"
+                    class="form-control my-1 "
+                  />
+                  <button
+                    onclick="searchOfProduct(this.value)"
+                    class="btn body-form  butn1 ms-1 mt-1"
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table
+                class="table tablecolor table-success  my-3 col-md-12 col-sm-12 table-striped nowrap w-100 table-bordered shadow-sm  "
+              >
+                <thead>
+                  <th>#</th>
+                  <th>prouduct</th>
+                  <th>category</th>
+                  <th>price</th>
+                  <th>description</th>
+                  <th>events</th>
+            
+                </thead>
+                <tbody id="tbody-id">
+               
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+     
+      </section>
+    
+  
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
